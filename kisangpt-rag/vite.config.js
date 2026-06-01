@@ -55,6 +55,10 @@ function apiPlugin() {
 
 export default defineConfig({
   plugins: [react(), apiPlugin()],
+  build: {
+    outDir: '../dist',
+    emptyOutDir: true
+  },
   server: {
     port: 3000,
     host: '0.0.0.0'
