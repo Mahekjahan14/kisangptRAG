@@ -1,0 +1,7 @@
+ragas>=0.1.0
+pandas
+requests
+python-dotenv
+datasets
+langchain-core
+langchain-google-genai

@@ -3,7 +3,8 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
     "start": "vite --host 0.0.0.0",
-    "eval": "node scripts/evaluate.mjs"
+    "eval": "node scripts/evaluate.mjs",
+    "eval:ragas": "python scripts/evaluate_ragas.py"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.3.3",

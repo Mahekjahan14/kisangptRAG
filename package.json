@@ -5,6 +5,7 @@
   "scripts": {
     "build": "npm install --prefix kisangpt-rag && npm run build --prefix kisangpt-rag",
     "dev": "npm run dev --prefix kisangpt-rag",
-    "eval": "npm run eval --prefix kisangpt-rag"
+    "eval": "npm run eval --prefix kisangpt-rag",
+    "eval:ragas": "npm run eval:ragas --prefix kisangpt-rag"
   }
 }
