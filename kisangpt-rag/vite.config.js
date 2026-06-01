@@ -56,7 +56,7 @@ function apiPlugin() {
 export default defineConfig({
   plugins: [react(), apiPlugin()],
   build: {
-    outDir: '../dist',
+    outDir: 'dist',
     emptyOutDir: true
   },
   server: {
