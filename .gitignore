@@ -1,0 +1,4 @@
+kisangpt-rag/node_modules/
+kisangpt-rag/dist/
+kisangpt-rag/.env
+.vercel/

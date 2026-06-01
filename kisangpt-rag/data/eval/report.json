@@ -1,0 +1,117 @@
+{
+  "total": 8,
+  "retrieval": {
+    "hit_at_1": 1,
+    "hit_at_3": 1,
+    "mrr": 1
+  },
+  "answer_quality": {
+    "keyword_coverage": 0.96875
+  },
+  "rows": [
+    {
+      "question": "How can I manage brown planthopper in rice?",
+      "expected": "DOC-004",
+      "top5": [
+        "DOC-004",
+        "DOC-001",
+        "DOC-003",
+        "DOC-002",
+        "DOC-056"
+      ],
+      "rank": 1,
+      "keyword_quality": 1
+    },
+    {
+      "question": "What are critical irrigation stages in wheat?",
+      "expected": "DOC-006",
+      "top5": [
+        "DOC-006",
+        "DOC-026",
+        "DOC-007",
+        "DOC-005",
+        "DOC-027"
+      ],
+      "rank": 1,
+      "keyword_quality": 1
+    },
+    {
+      "question": "How to control pink bollworm in cotton?",
+      "expected": "DOC-009",
+      "top5": [
+        "DOC-009",
+        "DOC-008",
+        "DOC-033",
+        "DOC-010",
+        "DOC-031"
+      ],
+      "rank": 1,
+      "keyword_quality": 1
+    },
+    {
+      "question": "What is soil testing used for?",
+      "expected": "DOC-021",
+      "top5": [
+        "DOC-021",
+        "DOC-056",
+        "DOC-054",
+        "DOC-010",
+        "DOC-038"
+      ],
+      "rank": 1,
+      "keyword_quality": 1
+    },
+    {
+      "question": "What is IPM?",
+      "expected": "DOC-031",
+      "top5": [
+        "DOC-031",
+        "DOC-033",
+        "DOC-053",
+        "DOC-001",
+        "DOC-002"
+      ],
+      "rank": 1,
+      "keyword_quality": 1
+    },
+    {
+      "question": "How should grains be stored safely?",
+      "expected": "DOC-040",
+      "top5": [
+        "DOC-040",
+        "DOC-032",
+        "DOC-006",
+        "DOC-039",
+        "DOC-031"
+      ],
+      "rank": 1,
+      "keyword_quality": 1
+    },
+    {
+      "question": "What features should a farmer chatbot support?",
+      "expected": "DOC-052",
+      "top5": [
+        "DOC-052",
+        "DOC-042",
+        "DOC-013",
+        "DOC-049",
+        "DOC-047"
+      ],
+      "rank": 1,
+      "keyword_quality": 1
+    },
+    {
+      "question": "What metrics evaluate RAG retrieval?",
+      "expected": "DOC-051",
+      "top5": [
+        "DOC-051",
+        "DOC-020",
+        "DOC-040",
+        "DOC-001",
+        "DOC-002"
+      ],
+      "rank": 1,
+      "keyword_quality": 0.75
+    }
+  ]
+}

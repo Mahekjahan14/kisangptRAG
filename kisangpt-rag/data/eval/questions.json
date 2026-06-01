@@ -1,0 +1,81 @@
+[
+  {
+    "question": "How can I manage brown planthopper in rice?",
+    "expected_doc": "DOC-004",
+    "answer_keywords": [
+      "nitrogen",
+      "spacing",
+      "natural enemies",
+      "monitor"
+    ]
+  },
+  {
+    "question": "What are critical irrigation stages in wheat?",
+    "expected_doc": "DOC-006",
+    "answer_keywords": [
+      "crown root initiation",
+      "flowering",
+      "grain filling"
+    ]
+  },
+  {
+    "question": "How to control pink bollworm in cotton?",
+    "expected_doc": "DOC-009",
+    "answer_keywords": [
+      "pheromone",
+      "refuge",
+      "residue",
+      "timely sowing"
+    ]
+  },
+  {
+    "question": "What is soil testing used for?",
+    "expected_doc": "DOC-021",
+    "answer_keywords": [
+      "fertilizer",
+      "representative samples",
+      "soil test"
+    ]
+  },
+  {
+    "question": "What is IPM?",
+    "expected_doc": "DOC-031",
+    "answer_keywords": [
+      "monitoring",
+      "threshold",
+      "biological",
+      "pesticide"
+    ]
+  },
+  {
+    "question": "How should grains be stored safely?",
+    "expected_doc": "DOC-040",
+    "answer_keywords": [
+      "drying",
+      "moisture",
+      "insects",
+      "storage"
+    ]
+  },
+  {
+    "question": "What features should a farmer chatbot support?",
+    "expected_doc": "DOC-052",
+    "answer_keywords": [
+      "local languages",
+      "voice",
+      "crop",
+      "location",
+      "sources"
+    ]
+  },
+  {
+    "question": "What metrics evaluate RAG retrieval?",
+    "expected_doc": "DOC-051",
+    "answer_keywords": [
+      "hit rate",
+      "precision",
+      "MRR",
+      "faithfulness"
+    ]
+  }
+]
