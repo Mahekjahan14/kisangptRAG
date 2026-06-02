@@ -1,4 +1,11 @@
 {
+  "version": 2,
+  "outputDirectory": "kisangpt-rag/dist",
+  "functions": {
+    "api/*.js": {
+      "includeFiles": "data/**"
+    }
+  },
   "rewrites": [
     {
       "source": "/api/(.*)",

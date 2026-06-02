@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 // Custom plugin to host serverless functions locally
 function apiPlugin() {
@@ -17,7 +18,8 @@ function apiPlugin() {
           req.on('end', async () => {
             try {
               const { message } = JSON.parse(body || '{}');
-              const { answer } = await import('./api/rag.mjs');
+              const ragPath = new URL('./api/rag.mjs', import.meta.url).href;
+              const { answer } = await import(ragPath);
               res.setHeader('Content-Type', 'application/json');
               if (!message) {
                 res.statusCode = 400;
@@ -36,7 +38,7 @@ function apiPlugin() {
 
         if (url.pathname === '/api/sources' && req.method === 'GET') {
           try {
-            const manifestPath = path.join(process.cwd(), 'data', 'manifest.json');
+            const manifestPath = fileURLToPath(new URL('./data/manifest.json', import.meta.url));
             const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
             res.setHeader('Content-Type', 'application/json');
             res.end(JSON.stringify({ count: manifest.length, documents: manifest }));

@@ -88,7 +88,11 @@ function App() {
         body: JSON.stringify({ message: q }),
       });
       const data = await r.json();
-      setChat((c) => [...c, { role: 'bot', text: data.answer, sources: data.sources, query: q }]);
+      if (data.error) {
+        setChat((c) => [...c, { role: 'bot', text: `Server Error: ${data.error}`, query: q }]);
+      } else {
+        setChat((c) => [...c, { role: 'bot', text: data.answer, sources: data.sources, query: q }]);
+      }
     } catch (err) {
       setChat((c) => [
         ...c,
@@ -207,11 +211,11 @@ function App() {
     ]
   };
 
-  const filteredLibrary = sources?.documents.filter(d => 
+  const filteredLibrary = (sources && Array.isArray(sources.documents)) ? sources.documents.filter(d => 
     d.title.toLowerCase().includes(libSearchQuery.toLowerCase()) ||
     d.publisher.toLowerCase().includes(libSearchQuery.toLowerCase()) ||
     d.id.toLowerCase().includes(libSearchQuery.toLowerCase())
-  ) || [];
+  ) : [];
 
   return (
     <div className="app">

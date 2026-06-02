@@ -16,14 +16,30 @@ function tokenize(text){
 }
 function parseMeta(text){ const meta={}; const m=text.match(/^---([\s\S]*?)---/); if(m){ for(const line of m[1].split('\n')){ const idx=line.indexOf(':'); if(idx>0) meta[line.slice(0,idx).trim()]=line.slice(idx+1).trim(); }} return meta; }
 function loadDocs(){ const dir=path.join(__dirname, '..', 'data', 'docs'); return fs.readdirSync(dir).filter(f=>f.endsWith('.md')).map(file=>{ const text=fs.readFileSync(path.join(dir,file),'utf8'); const meta=parseMeta(text); return {file, id:meta.id, title:meta.title, url:meta.source_url, publisher:meta.publisher, text:text.replace(/^---[\s\S]*?---/,'').trim()}; }); }
-const docs=loadDocs();
-const docTokens=docs.map(d=>tokenize(`${d.title} ${d.text}`));
-const df={}; for(const toks of docTokens){ for(const t of new Set(toks)) df[t]=(df[t]||0)+1; }
-const N=docs.length;
+
+let docs = null;
+let docTokens = null;
+let df = null;
+let N = 0;
+let docVecs = null;
+
+function initRAG() {
+  if (docs) return;
+  docs = loadDocs();
+  docTokens = docs.map(d=>tokenize(`${d.title} ${d.text}`));
+  df = {}; 
+  for(const toks of docTokens){ 
+    for(const t of new Set(toks)) df[t]=(df[t]||0)+1; 
+  }
+  N = docs.length;
+  docVecs = docTokens.map(vector);
+}
+
 function vector(tokens){ const counts={}; for(const t of tokens) counts[t]=(counts[t]||0)+1; const v={}; for(const [t,c] of Object.entries(counts)){ const idf=Math.log((N+1)/((df[t]||0)+1))+1; v[t]=c*idf; } return v; }
-const docVecs=docTokens.map(vector);
 function cosine(a,b){ let dot=0,na=0,nb=0; for(const v of Object.values(a)) na+=v*v; for(const v of Object.values(b)) nb+=v*v; for(const [k,v] of Object.entries(a)) if(b[k]) dot+=v*b[k]; return dot/(Math.sqrt(na)*Math.sqrt(nb)||1); }
+
 export function retrieve(query,k=5){
+  initRAG();
   const tokens = tokenize(query);
   const qv = vector(tokens);
   return docs.map((d,i) => {

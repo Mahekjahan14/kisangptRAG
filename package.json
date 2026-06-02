@@ -2,8 +2,9 @@
   "name": "kisangpt-rag-monorepo",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
-    "build": "npm install --prefix kisangpt-rag && npm run build --prefix kisangpt-rag",
+    "build": "npm install --prefix kisangpt-rag && npm run build --prefix kisangpt-rag && node copy-data.js",
     "dev": "npm run dev --prefix kisangpt-rag",
     "eval": "npm run eval --prefix kisangpt-rag",
     "eval:ragas": "npm run eval:ragas --prefix kisangpt-rag"
